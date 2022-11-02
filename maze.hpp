@@ -9,6 +9,10 @@
 #ifndef MAZE_HPP_
 #define MAZE_HPP_
 
+using std::cout;
+using std::cin;
+using std::endl;
+
 // room coordinates
 class Room {
 public:

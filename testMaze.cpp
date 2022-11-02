@@ -21,37 +21,38 @@ int main() {
     //
 
     Room myRoom; // create a room
+    
     cout << "myRoom, default location: ";
     myRoom.print();
     cout << endl;
 ////////////////////////////////////////////////////////
-    myRoom.pick();
-    cout << "myRoom, random location: ";
-    myRoom.print();
-    cout << endl;
-////////////////////////////////////////////////////////
-    Room startRoom;
-    startRoom.makeStartRoom();
-    cout << "start room: ";
-    startRoom.print();
-    cout << endl;
-////////////////////////////////////////////////////////
-    Room cheeseRoom;
-    cheeseRoom.makeCheeseRoom();
-    cout << "cheese room: ";
-    cheeseRoom.print();
-    cout << endl;
-////////////////////////////////////////////////////////
-    // make sure to implement goodDirection() and createAdjacent() first
-    Room newMoveRoom = myRoom.nextMove(); // asks user for new adjacent room
-    cout << "user selected adjacent room: ";
-    newMoveRoom.print();
-    cout << endl; 
+//     myRoom.pick();
+//     cout << "myRoom, random location: ";
+//     myRoom.print();
+//     cout << endl;
+// ////////////////////////////////////////////////////////
+//     Room startRoom;
+//     startRoom.makeStartRoom();
+//     cout << "start room: ";
+//     startRoom.print();
+//     cout << endl;
+// ////////////////////////////////////////////////////////
+//     Room cheeseRoom;
+//     cheeseRoom.makeCheeseRoom();
+//     cout << "cheese room: ";
+//     cheeseRoom.print();
+//     cout << endl;
+// ////////////////////////////////////////////////////////
+//     // make sure to implement goodDirection() and createAdjacent() first
+//     Room newMoveRoom = myRoom.nextMove(); // asks user for new adjacent room
+//     cout << "user selected adjacent room: ";
+//     newMoveRoom.print();
+//     cout << endl; 
 
-    if (matchRoom(myRoom, newMoveRoom))
-        cout << "myRoom is the same as newMoveRoom" << endl;
-    else
-        cout << "myRoom is not the same as newMoveRoom" << endl;
+//     if (matchRoom(myRoom, newMoveRoom))
+//         cout << "myRoom is the same as newMoveRoom" << endl;
+//     else
+//         cout << "myRoom is not the same as newMoveRoom" << endl;
     
 
     //
