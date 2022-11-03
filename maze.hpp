@@ -16,7 +16,7 @@ using std::endl;
 // room coordinates
 class Room {
 public:
-    Room(); // void constructor, assigns -1 to X coord, and '*' to Y coord
+    Room():x_(-1),y_('*'){}; // void constructor, assigns -1 to X coord, and '*' to Y coord
 
     void pick(); // selects a random room within the maze
 
@@ -113,12 +113,27 @@ private:
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 
-// CLASS FUNCTION DEFINITIONS //////////////////////////////////
+// ROOM CLASS FUNCTION DEFINITIONS /////////////////////////////
 
-
+void Room::pick() {
+    x_ = rand() % mazeSize_ + 1;
+    y_ = 'a' + rand() % mazeSize_;
+}
 
 void Room::print() const {
     cout << x_ << "|" << y_ << endl;
+}
+
+const Room Room::pickAdjacent() {
+
+}
+
+bool Room::goodDirection(const char) const {
+
+}
+
+const Room Room::createAdjacent(const char) const {
+
 }
 
 #endif // MAZE_HPP_

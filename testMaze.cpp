@@ -26,22 +26,22 @@ int main() {
     myRoom.print();
     cout << endl;
 ////////////////////////////////////////////////////////
-//     myRoom.pick();
-//     cout << "myRoom, random location: ";
-//     myRoom.print();
-//     cout << endl;
+    myRoom.pick();
+    cout << "myRoom, random location: ";
+    myRoom.print();
+    cout << endl;
 // ////////////////////////////////////////////////////////
-//     Room startRoom;
-//     startRoom.makeStartRoom();
-//     cout << "start room: ";
-//     startRoom.print();
-//     cout << endl;
+    Room startRoom;
+    startRoom.makeStartRoom();
+    cout << "start room: ";
+    startRoom.print();
+    cout << endl;
 // ////////////////////////////////////////////////////////
-//     Room cheeseRoom;
-//     cheeseRoom.makeCheeseRoom();
-//     cout << "cheese room: ";
-//     cheeseRoom.print();
-//     cout << endl;
+    Room cheeseRoom;
+    cheeseRoom.makeCheeseRoom();
+    cout << "cheese room: ";
+    cheeseRoom.print();
+    cout << endl;
 // ////////////////////////////////////////////////////////
 //     // make sure to implement goodDirection() and createAdjacent() first
 //     Room newMoveRoom = myRoom.nextMove(); // asks user for new adjacent room
