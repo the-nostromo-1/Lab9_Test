@@ -44,10 +44,10 @@ int main() {
     cout << endl;
 // ////////////////////////////////////////////////////////
 //     // make sure to implement goodDirection() and createAdjacent() first
-//     Room newMoveRoom = myRoom.nextMove(); // asks user for new adjacent room
-//     cout << "user selected adjacent room: ";
-//     newMoveRoom.print();
-//     cout << endl; 
+    Room newMoveRoom = myRoom.nextMove(); // asks user for new adjacent room
+    cout << "user selected adjacent room: ";
+    newMoveRoom.print();
+    cout << endl; 
 
 //     if (matchRoom(myRoom, newMoveRoom))
 //         cout << "myRoom is the same as newMoveRoom" << endl;

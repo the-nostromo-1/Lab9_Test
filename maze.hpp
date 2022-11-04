@@ -124,12 +124,18 @@ void Room::print() const {
     cout << x_ << "|" << y_ << endl;
 }
 
+
 const Room Room::pickAdjacent() {
 
 }
 
-bool Room::goodDirection(const char) const { // accessor function
+bool Room::goodDirection(const char direction) const { // accessor function
+    
+    if (direction == 'u' || direction == 'U') {
+        
+    }
 
+    return true;
 }
 
 const Room Room::createAdjacent(const char) const { // accessor function
