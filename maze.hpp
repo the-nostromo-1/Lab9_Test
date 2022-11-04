@@ -128,11 +128,11 @@ const Room Room::pickAdjacent() {
 
 }
 
-bool Room::goodDirection(const char) const {
+bool Room::goodDirection(const char) const { // accessor function
 
 }
 
-const Room Room::createAdjacent(const char) const {
+const Room Room::createAdjacent(const char) const { // accessor function
 
 }
 
