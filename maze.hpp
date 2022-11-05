@@ -15,6 +15,7 @@ using std::endl;
 
 // room coordinates
 class Room {
+//
 public:
     Room():x_(-1),y_('*'){}; // void constructor, assigns -1 to X coord, and '*' to Y coord
 
@@ -39,6 +40,7 @@ public:
 
     // predicate returns true if the coordinates of the two rooms match
     friend bool matchRoom(const Room&, const Room&);
+// 
 private:
     // checks if this direction keeps the mouse inside the maze
     bool goodDirection(const char) const;
@@ -121,24 +123,54 @@ void Room::pick() {
 }
 
 void Room::print() const {
-    cout << x_ << "|" << y_ << endl;
+    cout << x_ <<  y_ << endl;
 }
 
-
-const Room Room::pickAdjacent() {
-
-}
-
-bool Room::goodDirection(const char direction) const { // accessor function
+bool Room::goodDirection(const char direction) const {
     
-    if (direction == 'u' || direction == 'U') {
-        
+    if (direction == 'u' && y_ > 'a' ) { // Up
+        return true; //
+    }
+    if (direction == 'd' && y_ < 'a' + mazeSize_ - 1) { // Down
+        return true;
+    }
+    if (direction == 'l' && x_ > 1) { // Left
+        return true;
+    }
+    if (direction == 'r' && x_ < mazeSize_ + 1) { // Right
+
+    }        
+    return false;
+}
+
+const Room Room::createAdjacent(const char adj_room_direction) const {
+    Room new_adj_room = *this;
+
+    if (adj_room_direction == 'u') {
+        new_adj_room.y_ = y_ - 1;
+    }
+    if (adj_room_direction == 'd') {
+        new_adj_room.y_ = y_ + 1;
+    }
+    if (adj_room_direction == 'l') {
+        new_adj_room.x_ = x_ - 1;
+    }
+    if (adj_room_direction == 'r') {
+        new_adj_room.x_ = x_ + 1;
     }
 
-    return true;
+    return new_adj_room;
 }
 
-const Room Room::createAdjacent(const char) const { // accessor function
+const Room Room::pickAdjacent() {
+    // Room rand_adj_room;
+    char rand_letters [] = {'u', 'd', 'l' , 'r'};
+    char selected_rand_letter = rand_letters[rand() % 4]; 
+    createAdjacent(selected_rand_letter);
+
+}
+
+const Room Room::nextMove() const {
 
 }
 
