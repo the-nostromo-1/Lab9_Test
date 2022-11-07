@@ -146,10 +146,10 @@ const Room Room::createAdjacent(const char adj_room_direction) const {
     Room new_adj_room = *this;
 
     if (adj_room_direction == 'u') {
-        new_adj_room.y_ = y_ - ('a' + (mazeSize_ - 1));
+        new_adj_room.y_ = y_ - 'a';
     }
     if (adj_room_direction == 'd') {
-        new_adj_room.y_ = y_ + ('a' + (mazeSize_ - 1));
+        new_adj_room.y_ = y_ + 'a';
     }
     if (adj_room_direction == 'l') {
         new_adj_room.x_ = x_ - 1;
@@ -157,18 +157,50 @@ const Room Room::createAdjacent(const char adj_room_direction) const {
     if (adj_room_direction == 'r') {
         new_adj_room.x_ = x_ + 1;
     }
-    return *this;
+    return new_adj_room;
 }
 
 const Room Room::pickAdjacent() {
-    Room picked_adjacent;
+    Room picked_room = *this;
+
     char rand_letters [] = {'u', 'd', 'l' , 'r'};
     char selected_rand_letter = rand_letters[rand() % 4];
-    picked_adjacent.createAdjacent(selected_rand_letter);
+
+    Room picked_adjacent = picked_room;
+    picked_adjacent = picked_room.createAdjacent(selected_rand_letter);
+
+    if (picked_adjacent.goodDirection(selected_rand_letter) == true) {
+        return picked_adjacent;
+    } else {
+        cout << "Bad direction" << endl;
+        return picked_room;
+    }
+    
 }
 
-// const Room Room::nextMove() const {
+const Room Room::nextMove() const {
+    Room current_room = *this;
+    
+    cout << "Please select a room with (l = left) (r = right) (u = up) (d = down)" << endl;
+    char move_selection;
+    cin >> move_selection;
 
-// }
+    Room next_room_move;
+    next_room_move = current_room.createAdjacent(move_selection);
+    if (next_room_move.goodDirection(move_selection) == true) {
+        return next_room_move;
+    } else {
+        cout << "Bad direction" << endl;
+        return current_room;
+    }
+
+}
+
+bool matchRoom(const Room &current_room, const Room &new_room) {
+    if (current_room.x_ == new_room.x_ && current_room.y_ == new_room.y_) {
+        return true;
+    }
+    return false;
+}
 
 #endif // MAZE_HPP_
