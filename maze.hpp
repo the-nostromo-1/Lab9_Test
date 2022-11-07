@@ -33,10 +33,10 @@ public:
     void print() const;   // prints room coordinates in format "a1"
 
     // make this room the start room
-    void makeStartRoom() { x_ = 1; y_ = 'a'; };
+    void makeStartRoom() {x_ = 1; y_ = 'a';};
 
     // make this room - the cheese room
-    void makeCheeseRoom() { x_ = mazeSize_, y_ = 'a' + mazeSize_ - 1; };
+    void makeCheeseRoom() {x_ = mazeSize_, y_ = 'a' + mazeSize_ - 1;};
 
     // predicate returns true if the coordinates of the two rooms match
     friend bool matchRoom(const Room&, const Room&);
@@ -127,7 +127,6 @@ void Room::print() const {
 }
 
 bool Room::goodDirection(const char direction) const {
-    
     if (direction == 'u' && y_ > 'a' ) { // Up
         return true; //
     }
@@ -138,7 +137,7 @@ bool Room::goodDirection(const char direction) const {
         return true;
     }
     if (direction == 'r' && x_ < mazeSize_ + 1) { // Right
-
+        return true;
     }        
     return false;
 }
@@ -147,10 +146,10 @@ const Room Room::createAdjacent(const char adj_room_direction) const {
     Room new_adj_room = *this;
 
     if (adj_room_direction == 'u') {
-        new_adj_room.y_ = y_ - 1;
+        new_adj_room.y_ = y_ - ('a' + (mazeSize_ - 1));
     }
     if (adj_room_direction == 'd') {
-        new_adj_room.y_ = y_ + 1;
+        new_adj_room.y_ = y_ + ('a' + (mazeSize_ - 1));
     }
     if (adj_room_direction == 'l') {
         new_adj_room.x_ = x_ - 1;
@@ -158,20 +157,18 @@ const Room Room::createAdjacent(const char adj_room_direction) const {
     if (adj_room_direction == 'r') {
         new_adj_room.x_ = x_ + 1;
     }
-
-    return new_adj_room;
+    return *this;
 }
 
 const Room Room::pickAdjacent() {
-    // Room rand_adj_room;
+    Room picked_adjacent;
     char rand_letters [] = {'u', 'd', 'l' , 'r'};
-    char selected_rand_letter = rand_letters[rand() % 4]; 
-    createAdjacent(selected_rand_letter);
-
+    char selected_rand_letter = rand_letters[rand() % 4];
+    picked_adjacent.createAdjacent(selected_rand_letter);
 }
 
-const Room Room::nextMove() const {
+// const Room Room::nextMove() const {
 
-}
+// }
 
 #endif // MAZE_HPP_

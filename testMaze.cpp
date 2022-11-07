@@ -42,6 +42,7 @@ int main() {
     cout << "cheese room: ";
     cheeseRoom.print();
     cout << endl;
+    
 // ////////////////////////////////////////////////////////
 //     // make sure to implement goodDirection() and createAdjacent() first
 //    Room newMoveRoom = myRoom.nextMove(); // asks user for new adjacent room
@@ -60,13 +61,16 @@ int main() {
     //
     /*
     RoomPair myPair; 
-    cout << "myPair, default location: "; myPair.print(); cout << endl;
+    cout << "myPair, default location: ";
+    myPair.print(); cout << endl;
 
     RoomPair otherPair(myRoom, newMoveRoom); // testing a constructor
-    cout << "pair of myRoom, newMoveRoom: "; otherPair.print(); cout << endl;
+    cout << "pair of myRoom, newMoveRoom: ";
+    otherPair.print(); cout << endl;
 
     myPair.pick();
-    cout << "random room pair: "; myPair.print(); cout << endl;
+    cout << "random room pair: ";
+    myPair.print(); cout << endl;
 
     if(matchPair(myPair,otherPair))
         cout << "myPair is the same as otherPair" << endl;
@@ -78,13 +82,15 @@ int main() {
     //
     /*
     Maze myMaze;
-    cout << "maze with no walls: "; myMaze.print();
+    cout << "maze with no walls: ";
+    myMaze.print();
 
     myMaze.start();
 
     // make sure to implemnt Maze::checkMaze() before build()
     myMaze.build();
-    cout << "maze with walls:"; myMaze.print();
+    cout << "maze with walls:";
+    myMaze.print();
 
     myRoom = myMaze.getCurrentRoom();
     cout << "maze current room: "; myRoom.print(); cout << endl;
