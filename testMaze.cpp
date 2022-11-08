@@ -81,13 +81,13 @@ int main() {
     //
     // third part: Maze functions
     //
-    /*
+    
     Maze myMaze;
     cout << "maze with no walls: ";
     myMaze.print();
 
     myMaze.start();
-
+    /*
     // make sure to implemnt Maze::checkMaze() before build()
     myMaze.build();
     cout << "maze with walls:";

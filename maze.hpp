@@ -74,41 +74,41 @@ private:
     Room two_;
 };
 
-// class Maze {
-// public:
-//     Maze() {} // places every wall between two rooms where x-coordinate is -1
-//               // and y-coordinate is '*' (a star) to signify that
-//               // the wall is not built yet
+class Maze {
+public:
+    Maze() {} // places every wall between two rooms where x-coordinate is -1
+              // and y-coordinate is '*' (a star) to signify that
+              // the wall is not built yet
 
-//     // prints the locations of all the internal walls of the maze
-//     // and current mouse location
-//     void print() const; 
+    // prints the locations of all the internal walls of the maze
+    // and current mouse location
+    void print() const; 
 
-//     // places internal walls in random locations of the maze
-//     // all walls are different
-//     void build(); 
+    // places internal walls in random locations of the maze
+    // all walls are different
+    void build(); 
 
-//     // places current mouse location in startRoom_;
-//     void start() { currentRoom_.makeStartRoom(); }
+    // places current mouse location in startRoom_;
+    void start() { currentRoom_.makeStartRoom(); }
 
-//     // takes the room to move the mouse to
-//     // moves the mouse there and returns true if no walls (move is possible)
-//     // does not move the mouse and returns false if wall
-//     bool move(const Room&);
+    // takes the room to move the mouse to
+    // moves the mouse there and returns true if no walls (move is possible)
+    // does not move the mouse and returns false if wall
+    bool move(const Room&);
 
-//     // returns current mouse location
-//     const Room getCurrentRoom() { return currentRoom_; }
+    // returns current mouse location
+    const Room getCurrentRoom() {return currentRoom_;}
 
-// private:
-//     // returns the index of the element in maze_ that separates RoomPair
-//     // returns -1 if none do, uses matchPair()
-//     int checkMaze(const RoomPair&) const; 
+private:
+    // returns the index of the element in maze_ that separates RoomPair
+    // returns -1 if none do, uses matchPair()
+    int checkMaze(const RoomPair&) const; 
 
-//     Room currentRoom_; // current mouse Location
+    Room currentRoom_; // current mouse Location
 
-//     static const int numWalls_ = 8;  // number of internal walls
-//     RoomPair maze_[numWalls_]; // number of internal walls
-// };
+    static const int numWalls_ = 8;  // number of internal walls
+    RoomPair maze_[numWalls_]; // number of internal walls
+};
 
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
@@ -202,6 +202,13 @@ bool matchRoom(const Room &current_room, const Room &new_room) {
     return false;
 }
 
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// ROOMPAIR CLASS FUNCTION DEFINITIONS /////////////////////////////
+
 bool matchPair(const RoomPair &current_rooms, const RoomPair &new_rooms) {
     if ((matchRoom(current_rooms.one_, new_rooms.one_)) && (matchRoom(current_rooms.two_, new_rooms.two_))) {
         return true;
@@ -217,6 +224,17 @@ void RoomPair::pick() {
 void RoomPair::print() const {
     RoomPair::one_.print();
     RoomPair::two_.print();
+}
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// MAZE CLASS FUNCTION DEFINITIONS /////////////////////////////
+
+const Room getCurrentRoom() {
+    
 }
 
 #endif // MAZE_HPP_
