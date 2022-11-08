@@ -86,24 +86,29 @@ int main() {
     cout << "maze with no walls: ";
     myMaze.print();
 
-    //myMaze.start();
-    /*
+    myMaze.start();
+    
     // make sure to implemnt Maze::checkMaze() before build()
     myMaze.build();
     cout << "maze with walls:";
     myMaze.print();
-
+    cout << endl;
+    
     myRoom = myMaze.getCurrentRoom();
-    cout << "maze current room: "; myRoom.print(); cout << endl;
+    cout << "maze current room: ";
+    myRoom.print();
+    cout << endl;
 
     newMoveRoom = myRoom.nextMove(); 
-
+    
     if (myMaze.move(newMoveRoom))
         cout << "move to newMoveRoom is successful" << endl;
     else
         cout << "move to newMoveRoom failed" << endl;
-
+    
     myRoom = myMaze.getCurrentRoom();
-    cout << "maze current room: "; myRoom.print(); cout << endl;
-    */
+    cout << "maze current room: ";
+    myRoom.print();
+    cout << endl;
+    
 }

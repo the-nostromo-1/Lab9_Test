@@ -123,14 +123,14 @@ void Room::pick() {
 }
 
 void Room::print() const {
-    cout << x_ <<  y_ << endl;
+    cout << x_ << "|" <<  y_ << " ";
 }
 
 bool Room::goodDirection(const char direction) const {
     if (direction == 'u' && y_ > 'a' ) { // Up
         return true; //
     }
-    if (direction == 'd' && y_ < 'a' + mazeSize_ - 1) { // Down
+    if (direction == 'd' && y_ < 'a' + mazeSize_ + 1) { // Down
         return true;
     }
     if (direction == 'l' && x_ > 1) { // Left
@@ -138,7 +138,7 @@ bool Room::goodDirection(const char direction) const {
     }
     if (direction == 'r' && x_ < mazeSize_ + 1) { // Right
         return true;
-    }        
+    }
     return false;
 }
 
@@ -217,8 +217,8 @@ bool matchPair(const RoomPair &current_rooms, const RoomPair &new_rooms) {
 }
 
 void RoomPair::pick() {
-    RoomPair::one_.pickAdjacent();
-    RoomPair::two_.pickAdjacent();
+    RoomPair::one_.pick();
+    RoomPair::two_.pick();
 }
 
 void RoomPair::print() const {
@@ -239,10 +239,36 @@ void Maze::print() const {
     }
 }
 
-// const Room getCurrentRoom() {
-    
-// }
+bool Maze::move(const Room& room) {
+    RoomPair mouse_movement(getCurrentRoom(), room);
+    if (checkMaze(mouse_movement) == -1) {
+        currentRoom_ = room;
+        return true;
+    } else {
+        return false;
+    }
+}
 
+int Maze::checkMaze(const RoomPair& pair) const {
+    for (int i = 0; i < numWalls_; ++i) {
+        if (matchPair(maze_[i], pair) == true) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void Maze::build() {
+    int walls_built = 0;
+    RoomPair room_wall_built;
+    while (walls_built < numWalls_) {
+        room_wall_built.pick();
+        if (checkMaze(room_wall_built) == -1) {
+            maze_[walls_built] = room_wall_built;
+            ++walls_built;
+        }
+    }
+}
 
 
 #endif // MAZE_HPP_
