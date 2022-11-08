@@ -49,33 +49,35 @@ int main() {
     newMoveRoom.print();
     cout << endl; 
 /////////////////////////////////////////////////////////
-    if (matchRoom(myRoom, newMoveRoom))
+    if (matchRoom(myRoom, newMoveRoom)) {
         cout << "myRoom is the same as newMoveRoom" << endl;
-    else
+    } else {
         cout << "myRoom is not the same as newMoveRoom" << endl;
-    
-
+    }
     //
     // second part: RoomPair functions
     //
-    /*
+    
     RoomPair myPair; 
     cout << "myPair, default location: ";
-    myPair.print(); cout << endl;
-
+    myPair.print();
+    cout << endl;
+    
     RoomPair otherPair(myRoom, newMoveRoom); // testing a constructor
     cout << "pair of myRoom, newMoveRoom: ";
-    otherPair.print(); cout << endl;
-
+    otherPair.print();
+    cout << endl;
+    
     myPair.pick();
     cout << "random room pair: ";
-    myPair.print(); cout << endl;
+    myPair.print();
+    cout << endl;
 
     if(matchPair(myPair,otherPair))
         cout << "myPair is the same as otherPair" << endl;
     else
         cout << "myPair is not the same as otherPair" << endl;
-     */
+
     //
     // third part: Maze functions
     //

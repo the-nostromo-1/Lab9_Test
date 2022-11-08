@@ -56,23 +56,23 @@ private:
 
 
 // internal wall or next move
-// class RoomPair {
-// public:
-//     RoomPair() {} // void constructor implicitly invokes void constructors on member variables
-//     // makes a roomPair out of two rooms
-//     RoomPair(const Room& one, const Room& two):one_(one), two_(two) {}
+class RoomPair {
+public:
+    RoomPair() {} // void constructor implicitly invokes void constructors on member variables
+    // makes a roomPair out of two rooms
+    RoomPair(const Room& one, const Room& two):one_(one), two_(two) {}
 
-//     void pick(); //selects a random wall, uses Room::pickAdjacent()
-//     void print() const; // prints the locations of the adjacent rooms
+    void pick(); //selects a random wall, uses Room::pickAdjacent()
+    void print() const; // prints the locations of the adjacent rooms
 
-//     // returns true if two pairs of adjacent rooms are the same,
-//     // returns false otherwise, uses matchRoom() note that r1|r2 matches r2|r1
-//     friend bool matchPair(const RoomPair&, const RoomPair&);
+    // returns true if two pairs of adjacent rooms are the same,
+    // returns false otherwise, uses matchRoom() note that r1|r2 matches r2|r1
+    friend bool matchPair(const RoomPair&, const RoomPair&);
 
-// private:
-//     Room one_;
-//     Room two_;
-// };
+private:
+    Room one_;
+    Room two_;
+};
 
 // class Maze {
 // public:
@@ -146,10 +146,10 @@ const Room Room::createAdjacent(const char adj_room_direction) const {
     Room new_adj_room = *this;
 
     if (adj_room_direction == 'u') {
-        new_adj_room.y_ = y_ - 'a';
+        new_adj_room.y_ = y_ - 1;
     }
     if (adj_room_direction == 'd') {
-        new_adj_room.y_ = y_ + 'a';
+        new_adj_room.y_ = y_ + 1;
     }
     if (adj_room_direction == 'l') {
         new_adj_room.x_ = x_ - 1;
@@ -175,7 +175,6 @@ const Room Room::pickAdjacent() {
         cout << "Bad direction" << endl;
         return picked_room;
     }
-    
 }
 
 const Room Room::nextMove() const {
@@ -201,6 +200,23 @@ bool matchRoom(const Room &current_room, const Room &new_room) {
         return true;
     }
     return false;
+}
+
+bool matchPair(const RoomPair &current_rooms, const RoomPair &new_rooms) {
+    if ((matchRoom(current_rooms.one_, new_rooms.one_)) && (matchRoom(current_rooms.two_, new_rooms.two_))) {
+        return true;
+    }
+    return false;
+}
+
+void RoomPair::pick() {
+    RoomPair::one_.pickAdjacent();
+    RoomPair::two_.pickAdjacent();
+}
+
+void RoomPair::print() const {
+    RoomPair::one_.print();
+    RoomPair::two_.print();
 }
 
 #endif // MAZE_HPP_
