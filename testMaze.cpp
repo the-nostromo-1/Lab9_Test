@@ -86,7 +86,7 @@ int main() {
     cout << "maze with no walls: ";
     myMaze.print();
 
-    myMaze.start();
+    //myMaze.start();
     /*
     // make sure to implemnt Maze::checkMaze() before build()
     myMaze.build();

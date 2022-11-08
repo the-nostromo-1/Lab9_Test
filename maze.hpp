@@ -233,8 +233,16 @@ void RoomPair::print() const {
 
 // MAZE CLASS FUNCTION DEFINITIONS /////////////////////////////
 
-const Room getCurrentRoom() {
-    
+void Maze::print() const {
+    for (int i = 0; i < numWalls_; ++i) {
+        Maze::maze_[i].print();
+    }
 }
+
+// const Room getCurrentRoom() {
+    
+// }
+
+
 
 #endif // MAZE_HPP_
